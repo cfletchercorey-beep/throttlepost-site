@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex">
+<title>Join your dealership on ThrottlePost</title>
+<style>body{font:16px/1.6 system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;color:#1F1F1F;background:#fff}
+.tp-head{background:#1F1F1F;border-bottom:4px solid #E3001B;color:#fff}.tp-head>div{max-width:760px;margin:0 auto;padding:18px 20px}
+.tp-head .name{font-size:22px;font-weight:800}.tp-head .name b{color:#FF3347}.tp-head .tag{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#d9d9d9}
+main{max-width:760px;margin:0 auto;padding:10px 20px 40px}.code{font:700 24px monospace;background:#fff8e1;border:1px dashed #e0b000;padding:6px 12px;border-radius:8px;display:inline-block}
+a{color:#B80016}</style></head><body>
+<header class="tp-head"><div><div class="name">Throttle<b>Post</b></div><div class="tag">Put Your Inventory in Overdrive</div></div></header>
+<main>
+<h1>Join your dealership on ThrottlePost</h1>
+<p>Your manager invited you. Your invite code:</p>
+<p><span class="code" id="code">(no code in this link)</span></p>
+<ol>
+<li>Install ThrottlePost from the <a href="https://chromewebstore.google.com/search/ThrottlePost">Chrome Web Store</a>.</li>
+<li>Click the ThrottlePost icon, then <b>Got an invite link from your manager? Join your team</b>.</li>
+<li>Enter your work email, a password and your name, and paste this page's link (or the code above). Click <b>Create account</b>.</li>
+</ol>
+<p>Already have a ThrottlePost login? Open the popup's <b>Settings</b>, paste the link under <b>Join a dealership team</b> and click <b>Join team</b>.</p>
+<p>Questions: <a href="mailto:throttlepost@gmail.com">throttlepost@gmail.com</a> · <a href="/privacy/">Privacy policy</a></p>
+</main>
+<script>
+// Shows the code from ?code=; nothing is sent anywhere from this page (no requests, no referrer, no secrets).
+(function () { var c = new URLSearchParams(location.search).get('code') || '';
+  c = c.toUpperCase().replace(/[^A-Z0-9-]/g, '').slice(0, 14); if (c) document.getElementById('code').textContent = c; })();
+</script>
+</body></html>

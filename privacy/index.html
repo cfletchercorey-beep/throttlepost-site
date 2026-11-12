@@ -10,7 +10,7 @@ a{color:#B80016}code{background:#f3f3f3;padding:1px 4px;border-radius:4px}.muted
 <header class="tp-head"><div><div class="name">Throttle<b>Post</b></div><div class="tag">Put Your Inventory in Overdrive</div></div></header>
 <main>
 <h1>ThrottlePost Privacy Policy</h1>
-<p class="muted">Effective: November 11, 2026 · Publisher: ThrottlePost · Contact: <a href="mailto:throttlepost@gmail.com">throttlepost@gmail.com</a></p>
+<p class="muted">Effective: November 12, 2026 (updated for ThrottlePost 1.2: dealership teams, posting log, dealer dashboard, inventory snapshot, sold-vehicle check and log deletion) · Publisher: ThrottlePost · Contact: <a href="mailto:throttlepost@gmail.com">throttlepost@gmail.com</a></p>
 
 <p>ThrottlePost is a Chrome extension for car dealers. It copies a vehicle's details and photos from the vehicle page the dealer has open: the dealer's <b>public</b> website vehicle pages
 (the same pages any shopper can see), or an <b>OPENLANE</b> vehicle page the dealer is viewing in their own signed-in browser. It puts them into the Facebook Marketplace
@@ -23,12 +23,30 @@ It only fills the form. The user reviews it and presses Post themselves.</p>
 provider, Supabase Auth, and are stored only as a one-way hash. We never see or store your password in plain text.</li>
 <li><b>Account status:</b> your trial start and end dates, plan and status (trial, active, expired or disabled), and any notes the
 publisher adds to manage your account.</li>
+<li><b>Dealership and team:</b> each account belongs to a dealership. We store the dealership's name, its trial or plan status and dates, its
+current invite code, and each person's display name (the name you or your manager enter), role (manager or salesperson) and the date someone was removed from the team.</li>
+<li><b>Posting log:</b> each time ThrottlePost fills a Facebook vehicle form, it saves one log entry on our server with the vehicle's year, make, model, trim,
+stock number and VIN, the asking price shown on the dealer's public website (no price is logged for OPENLANE vehicles), which website the vehicle came from
+(the dealer site's address, or just "OPENLANE"), the time it was filled, and who filled it (their account, display name and email). If you then press
+Post or Publish on Facebook yourself, the entry is marked "posted" with that time. ThrottlePost only notices that you pressed the button; it never presses it,
+and it does not read anything else from Facebook (no listing links, messages, buyers or account details).
+The entry also keeps the last price seen for that car on the dealer's public website and, after someone presses "Updated", the price the Facebook ad was updated to.
+The log never contains the OPENLANE auction or wholesale price, seller, location or sold price.</li>
+<li><b>Deleted log entries:</b> a salesperson can delete their own log entries and a manager can delete any entry in their dealership's log (Delete on the Dashboard). Deleting removes the entry from the log, the Dashboard and the CSV export, and changes nothing on Facebook. For accountability, our server keeps an audit copy of each deleted entry (the entry as it was, who deleted it and when). Nobody can see the audit copy in the extension; it is used only for support, abuse prevention and so that deleting entries does not reset the daily "forms filled today" count. It is deleted after 18 months.</li>
+<li><b>Sold or removed check:</b> for cars marked "posted", ThrottlePost reads the dealer's <b>public</b> inventory pages (only the dealer website you allowed in Settings)
+and keeps, per posted car, when it was last seen there, when it went missing and whether it was flagged and marked "Taken down" (and by whom).
+For each check it stores the time, the website, whether the check worked and how many vehicles were listed.</li>
+<li><b>Inventory snapshot:</b> after each successful check, our server keeps a copy of the dealer website's <b>public</b> vehicle list as it was at that check: for each car its VIN, stock number,
+year, make, model, trim, advertised price, the link to its page on the dealer website, whether it is new or used, and when it was first and last seen there. It is replaced on every check,
+and cars no longer listed are removed. It is the same information any shopper can see on the dealer's website. It is used for the Dashboard's "Not posted yet",
+"Consider reposting" and price-change reminders. When the website's price for a posted car changes, ThrottlePost records the old and new price so it can remind you to update the Facebook ad.</li>
+<li><b>Dashboard settings:</b> the two reminder settings a manager picks (after how many days to suggest reposting, and how long without a post counts as "not posted").</li>
 <li><b>Technical sign-in data:</b> Supabase keeps standard security logs (such as sign-in time and IP address) to protect accounts.</li>
 </ul>
 
 <h2>What stays on your computer</h2>
-<p>Vehicle details, descriptions, photos, your dealership settings and ThrottlePost's debug log are saved in Chrome's local extension storage on your
-computer. They are <b>not</b> sent to the publisher or to ThrottlePost's servers. When you click <i>Open Facebook vehicle form</i>, ThrottlePost opens the Facebook form in a new tab in your own browser and puts that information into it. Nothing is published until you press Post on Facebook.</p>
+<p>Vehicle descriptions, photos, your dealership settings and ThrottlePost's debug log are saved in Chrome's local extension storage on your
+computer. They are <b>not</b> sent to the publisher or to ThrottlePost's servers. Only the posting-log fields listed above leave your computer. When you click <i>Open Facebook vehicle form</i>, ThrottlePost opens the Facebook form in a new tab in your own browser and puts that information into it. Nothing is published until you press Post on Facebook.</p>
 <p>ThrottlePost reads vehicle data only from what the vehicle page open in your own browser tab displays: your dealer website (after you allow it
 in Settings; Chrome asks you first), a page where you click <i>Capture this page</i>, or an OPENLANE vehicle page. On OPENLANE it may open the page's
 photo gallery and features list, as you would. It never copies the OPENLANE auction or wholesale price, seller, location or sale information.
@@ -39,20 +57,34 @@ ThrottlePost does not read or store your passwords for Facebook or any other sit
 <ul>
 <li>To sign you in and check whether your account's trial or plan is active.</li>
 <li>To contact you about your account if you ask us to, or if your trial is ending.</li>
+<li>To show your dealership's managers what was filled and posted, by whom and when (with a CSV export), and to show each salesperson their own log and how many forms they filled today.</li>
+<li>To remind you to take down a Facebook listing when the car is no longer on the dealer's public website. ThrottlePost never deletes, edits or marks anything as sold on Facebook; you do that yourself.</li>
+<li>To show the dealership's Dashboard: weekly totals (posted, filled, sold), cars on the dealer website that have not been posted yet, cars worth reposting and price changes to update on Facebook.</li>
 </ul>
 <p>We do not sell your information. We do not use it for advertising, and we do not use it to decide creditworthiness or for lending.
 ThrottlePost has no analytics or tracking code.</p>
+
+<h2>Who can see it</h2>
+<p>A salesperson sees only their own posting log. The managers of a dealership see the whole dealership's log, the team members' names and emails,
+the sold-or-removed flags and the Dashboard. Everyone in a dealership can see the Dashboard's view of that dealership's public website inventory
+(such as "Not posted yet"). Other dealerships cannot see any of it; database rules enforce this. The publisher can see account, dealership and log data
+to provide support and manage accounts. If a manager removes you from the team, you lose access right away; the entries you created stay in that dealership's log
+(as business records of that dealership) until they expire or are deleted as described below.</p>
 
 <h2>Who processes it</h2>
 <p>Account data is stored with Supabase, Inc. (our database and sign-in provider) in the region the publisher selected.
 If billing is added later, payments would be handled by a payment processor such as Stripe, and this policy will be updated first.</p>
 
 <h2>Keeping and deleting data</h2>
-<p>We keep your account while you use ThrottlePost. To delete your account and its data, contact us at the address above and we will delete it within 30 days.
+<p>We keep your account while you use ThrottlePost. Posting-log entries are kept for <b>18 months</b> from when the form was filled and then deleted automatically.
+Sold-check records and price changes are kept with the log entry they belong to; check summaries (time, website, vehicle count), price changes and audit copies of deleted entries are kept for 18 months at most.
+The inventory snapshot holds only the cars on the dealer website at the latest check.</p>
+<p>You can delete individual log entries yourself on the Dashboard (see "Deleted log entries" above). To delete your account, your posting log or your dealership's whole log, email us at the address above. A salesperson can ask us to delete their own entries;
+a dealership's manager can ask us to delete the dealership's log. We confirm the request comes from the account's email address and delete the data within 30 days.
 Removing the extension from Chrome deletes everything it stored on your computer.</p>
 
 <h2>Security</h2>
-<p>All connections use HTTPS. Database rules let each account read only its own record. Administrative keys are kept on the server and are never included in the extension.</p>
+<p>All connections use HTTPS. Database rules let each account read only its own record and its own log entries, and let managers read only their own dealership's team and log. Administrative keys are kept on the server and are never included in the extension.</p>
 
 <h2>Children</h2>
 <p>ThrottlePost is a business tool for car dealers and is not directed to children.</p>
